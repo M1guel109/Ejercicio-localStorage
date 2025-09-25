@@ -1,33 +1,44 @@
-const form = document.getElementById('formulario');
-const input = document.getElementById('nombre');
-const saludo = document.getElementById('saludo');
-const eliminarN = document.getElementById('borrar');
+const form = document.getElementById('formulario-curso');
+const inpCurso = document.getElementById('curso');
+const inpNombre = document.getElementById('nombre-profesor');
+const inpPrecio = document.getElementById('precio');
+const inpCiudad = document.getElementById('ciudad');
+const inpCupo = document.getElementById('cupo');
+const mensaje = document.getElementById('mensaje-curso');
+const btnBorrar = document.getElementById('borrar');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) =>{
     e.preventDefault();
 
-    const nombre = input.value.trim();
-    if (nombre == "") {
-        alert('Por favor ingrese un nombre');
+    const curso = inpCurso.value.trim();
+    const profesor = inpNombre.value.trim();
+    const precio = inpPrecio.value.trim();
+    const ciudad = inpCiudad.value.trim();
+    const cupo = inpCupo.value.trim();
+
+    if (curso == "" || profesor == "" || precio == "" || ciudad == "" || cupo == "") {
+        alert('Por favor llenar todos los campos(son obligatorios)');
         return;
-    }
+    };
 
-    localStorage.setItem('usuario', nombre);
+    // Anteriormente era solo un valor y ahora estamos alimentanto un objeto
+    const nuevoCurso = {
+        nombre: curso,
+        profesor: profesor,
+        precio: precio,
+        ciudad: ciudad,
+        cupo: cupo
+    };
 
-    saludo.textContent = 'Bienvenido ' + nombre;
+    localStorage.setItem('curso', JSON.stringify(nuevoCurso));
 
-    input.value = "";
+    form.reset();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const usuarioGuardado = localStorage.getItem('usuario');
-    if (usuarioGuardado) {
-        saludo.textContent = "Bienvenido de nuevo " + usuarioGuardado;
+document.addEventListener('DOMContentLoaded', () =>{
+    const cursoCreado = localStorage.getItem('curso');
+    if (cursoCreado) {
+        const objetoCurso = JSON.parse(cursoCreado);
+        mensaje.innerHTML = 'Curso:' + objetoCurso.nombre + '<br>' + ' Profesor:' + objetoCurso.profesor + '<br>' + ' Precio:' + objetoCurso.precio + '<br>' + ' Ciudad:' + objetoCurso.ciudad + '<br>' + ' Cupo:' + objetoCurso.cupo;
     }
 });
-
-eliminarN.addEventListener('click', () => {
-    localStorage.removeItem('usuario');
-    saludo.textContent = "Bienvenido Usuario Indefinido";
-})
-

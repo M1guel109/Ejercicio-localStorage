@@ -1,0 +1,119 @@
+/* --- Fuente e importación --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* --- Reset básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #f1f1f1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 60px 20px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+input[type="text"] {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00ffc3;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+button[type="submit"],
+#borrar {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"] {
+    background-color: #00ffc3;
+    color: #000;
+}
+
+button[type="submit"]:hover {
+    background-color: #00d6a8;
+    transform: scale(1.02);
+}
+
+#borrar {
+    background-color: #ff4c4c;
+    color: white;
+    margin-top: 20px;
+}
+
+#borrar:hover {
+    background-color: #e03c3c;
+    transform: scale(1.02);
+}
+
+#mensaje-curso {
+    margin-top: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #00ffc3;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    max-width: 500px;
+    text-align: left;
+    color: #e0fef8;
+}
+
+a {
+    margin-top: 30px;
+    text-decoration: none;
+    color: #00ffc3;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #00d6a8;
+    text-decoration: underline;
+}
