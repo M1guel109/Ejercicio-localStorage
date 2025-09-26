@@ -117,3 +117,49 @@ a:hover {
     color: #00d6a8;
     text-decoration: underline;
 }
+
+#tabla-cursos {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    font-size: 15px;
+    color: #e0fef8;
+}
+
+#tabla-cursos thead {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#tabla-cursos thead td {
+    padding: 14px 16px;
+    font-weight: 600;
+    color: #00ffc3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#tabla-cursos tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #f1f1f1;
+}
+
+/* Alternancia de color en filas */
+#tabla-cursos tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Hover efecto */
+#tabla-cursos tbody tr:hover {
+    background-color: rgba(0, 255, 195, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+

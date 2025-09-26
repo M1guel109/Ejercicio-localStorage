@@ -7,7 +7,7 @@ const inpCupo = document.getElementById('cupo');
 const mensaje = document.getElementById('mensaje-curso');
 const btnBorrar = document.getElementById('borrar');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     const curso = inpCurso.value.trim();
@@ -30,26 +30,21 @@ form.addEventListener('submit', (e) => {
         cupo: cupo
     };
 
-    localStorage.setItem('curso', JSON.stringify(nuevoCurso));
+    //Capturamos el arreglo existente en el localStorage o lo creamos vacio si no existe previamente 
+    const cursosGuardados = JSON.parse(localStorage.getItem('cursos')) || [];
 
-    const cursoCreado = localStorage.getItem('curso');
+    // Agregamos al arreglo cursosGuardados [] el nuevoCurso {}
+    cursosGuardados.push(nuevoCurso);
 
-    const objetoCurso = JSON.parse(cursoCreado);
-    mensaje.innerHTML = 'Curso:' + objetoCurso.nombre + '<br>' + ' Profesor:' + objetoCurso.profesor + '<br>' + ' Precio:' + objetoCurso.precio + '<br>' + ' Ciudad:' + objetoCurso.ciudad + '<br>' + ' Cupo:' + objetoCurso.cupo;
-
+    localStorage.setItem('cursos', JSON.stringify(cursosGuardados));
 
     form.reset();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>{
     const cursoCreado = localStorage.getItem('curso');
     if (cursoCreado) {
         const objetoCurso = JSON.parse(cursoCreado);
         mensaje.innerHTML = 'Curso:' + objetoCurso.nombre + '<br>' + ' Profesor:' + objetoCurso.profesor + '<br>' + ' Precio:' + objetoCurso.precio + '<br>' + ' Ciudad:' + objetoCurso.ciudad + '<br>' + ' Cupo:' + objetoCurso.cupo;
     }
-});
-
-btnBorrar.addEventListener('click', () => {
-    localStorage.removeItem('cursos');
-    mensaje.textContent = "Bienvenido curso indefinido";
 });
