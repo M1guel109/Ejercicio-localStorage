@@ -48,3 +48,8 @@ document.addEventListener('DOMContentLoaded', () =>{
         mensaje.innerHTML = 'Curso:' + objetoCurso.nombre + '<br>' + ' Profesor:' + objetoCurso.profesor + '<br>' + ' Precio:' + objetoCurso.precio + '<br>' + ' Ciudad:' + objetoCurso.ciudad + '<br>' + ' Cupo:' + objetoCurso.cupo;
     }
 });
+
+btnBorrar.addEventListener('click', () => {
+    localStorage.removeItem('cursos');
+    mensaje.textContent = "Bienvenido curso indefinido";
+});
